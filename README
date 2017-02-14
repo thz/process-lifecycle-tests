@@ -1,0 +1,4 @@
+
+subreaper.c - shows the linux feature of prctl/PR_SET_CHILD_SUBREAPER
+
+zombie.c - simple zombie creation
