@@ -1,4 +1,16 @@
 
-subreaper.c - shows the linux feature of prctl/PR_SET_CHILD_SUBREAPER
-
 zombie.c - simple zombie creation
+
+subreaper.c - shows the linux feature of prctl/PR_SET_CHILD_SUBREAPER
+excerpt from PRCTL(2):
+       PR_SET_CHILD_SUBREAPER (since Linux 3.4)
+              If  arg2  is nonzero, set the "child subreaper" attribute of the
+              calling process; if arg2 is zero, unset the attribute.   When  a
+              process is marked as a child subreaper, all of the children that
+              it creates, and their descendants, will be marked  as  having  a
+              subreaper.   In effect, a subreaper fulfills the role of init(1)
+              for its descendant processes.  Upon  termination  of  a  process
+              that  is orphaned (i.e., its immediate parent has already termi-
+              nated) and marked as having a subreaper, the nearest still  liv-
+              ing ancestor subreaper will receive a SIGCHLD signal and be able
+              to wait(2) on the process to discover its termination status.
